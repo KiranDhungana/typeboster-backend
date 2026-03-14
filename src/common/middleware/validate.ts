@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
-import type { AnyZodObject, ZodEffects } from "zod";
+import type { ZodType } from "zod";
 
-type Schema = AnyZodObject | ZodEffects<AnyZodObject>;
+type Schema = ZodType;
 
 export function validate(schema: Schema, property: "body" | "params" | "query" = "body") {
   return (req: Request, _res: Response, next: NextFunction) => {
